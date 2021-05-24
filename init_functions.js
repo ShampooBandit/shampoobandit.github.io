@@ -5,7 +5,7 @@ function initSquares()
    	for(i = 0; i < 1; i++)
    	{
    		var elm = document.createElement("input");
-   		var body = document.getElementByID("body");
+   		var body = document.getElementById("body");
 
    		//itemSpots[i] = new itemSpot();
 
