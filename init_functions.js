@@ -10,7 +10,7 @@ function initSquares()
 
    		itemSpots[i] = new itemSpot();
 
-   		elm.img = "";
+   		elm.img = "Images/receptacle.png";
    		elm.addEventListener('mouseenter', scale(1,1));
    		elm.addEventListener('mouseleave', scale(0.5,0.5));
    	}
