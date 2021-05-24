@@ -2,7 +2,7 @@ function initSquares()
 {
 	itemSpots = {}
    	var i;
-   	for(i = 0; i < 100; i++)
+   	for(i = 0; i < 1; i++)
    	{
    		var elm = document.createElement("spot"+i);
    		var body = document.getElementById("body");
