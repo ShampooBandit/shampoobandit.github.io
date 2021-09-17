@@ -5,7 +5,7 @@ body {
 .off-bottom {
     position: absolute;
     top: 95vh;
-    bottom: 100vh;
+    bottom: 95vh;
     left: 40vw;
     right: 60vw;
     opacity: 0;
