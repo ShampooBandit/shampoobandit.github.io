@@ -1,19 +1,21 @@
-function initSquares()
-{
-	//itemSpots = {}
-   	var i;
-   	for(i = 0; i < 1; i++)
-   	{
-   		var elm = document.createElement("input");
-   		var body = document.getElementById("body");
+function checkForData() {
+	if(!localStorage.getItem('save')) {
+		populateStorage();
+		firstTime();
+	}
+	else {
+		loadData();
+	}
+}
 
-   		//itemSpots[i] = new itemSpot();
+function populateStorage() {
+	localStorage.setItem('save', true);
+}
 
-   		elm.type = "image";
-   		elm.src = "Images/receptacle.png";
-   		elm.addEventListener('mouseenter', scale(1,1));
-   		elm.addEventListener('mouseleave', scale(0.5,0.5));
+function firstTime() {
+	document.getElementById('text1').style.animation('driftUp 5s')
+}
 
-   		body.appendChild(elm);
-   	}
+function loadData() {
+
 }

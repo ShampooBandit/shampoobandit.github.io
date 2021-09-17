@@ -1,3 +1,20 @@
 body {
     background-color: darkslategray;
 }
+
+.off-bottom {
+    margin-top: 100%;
+    opacity: 0;
+}
+
+@keyframes driftUp {
+    from {
+        margin-top: 100%;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 90%;
+        opacity: 1;
+    }
+}
