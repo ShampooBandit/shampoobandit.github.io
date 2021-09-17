@@ -5,6 +5,8 @@ body {
 .off-bottom {
     top: 100vh;
     bottom: 100vh;
+    left: 45vw;
+    right: 55vw;
     opacity: 0;
 }
 
