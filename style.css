@@ -3,6 +3,7 @@ body {
 }
 
 .off-bottom {
+    position: absolute;
     top: 100vh;
     bottom: 100vh;
     left: 45vw;
