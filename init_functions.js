@@ -1,7 +1,7 @@
 function checkForData() {
+	firstTime();
 	if(!localStorage.getItem('save')) {
 		populateStorage();
-		firstTime();
 	}
 	else {
 		loadData();
