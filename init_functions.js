@@ -13,7 +13,7 @@ function populateStorage() {
 }
 
 function firstTime() {
-	document.getElementById('text1').style.animation = 'driftUp 5s';
+	document.getElementById('text1').style.animation = 'driftUp 5s forwards';
 }
 
 function loadData() {
