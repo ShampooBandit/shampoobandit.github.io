@@ -1,24 +1,53 @@
+* {
+    font-size: 32px;
+}
+
 body {
-    background-color: darkslategray;
+    background-color: #1f3f3f;
+}
+
+#text1, #text2 {
+    border-radius: 6px;
+    color: #ff9d7c;
 }
 
 .off-bottom {
     position: absolute;
-    top: 95vh;
-    bottom: 95vh;
-    left: 40vw;
-    right: 60vw;
+    top: 90vh;
+    left: 35vw;
+    width: auto;
+    height: auto;
     opacity: 0;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes driftUp {
     from {
-        top: 95vh;
+        top: 93vh;
         opacity: 0;
     }
 
     to {
         top: 90vh;
         opacity: 1;
+    }
+}
+
+@keyframes vanish {
+    from {
+        top: 90vh;
+        opacity: 1;
+    }
+
+    to {
+        top: 85vh;
+        opacity: 0;
     }
 }
