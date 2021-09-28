@@ -2,7 +2,7 @@
   "name": "idleGame",
   "version": "0.0.1",
   "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://shampoobandit.github.io/idleGame",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
