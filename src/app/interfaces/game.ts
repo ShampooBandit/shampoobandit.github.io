@@ -14,6 +14,14 @@ export interface Item {
     size: Number
 }
 
+export interface Equip {
+    name: String,
+    description: String,
+    power: Number,
+    cost: any,
+    id: Number
+}
+
 export interface Connection {
     direction: String, //East, south, up, down, etc. >go direction
     room: Room
@@ -23,5 +31,23 @@ export interface Player {
     name: String,
     description: String,
     location: Room,
-    inventory: Item[]
+    inventory: Item[],
+    gear: PlayerEquipment,
+    resources: any,
+    level: Number,
+    experience: Number,
+    maxResource: Number
+}
+
+export interface PlayerEquipment {
+    head: Equip,
+    eyes: Equip,
+    torso: Equip,
+    legs: Equip,
+    waist: Equip,
+    back: Equip,
+    leftHand: Equip,
+    rightHand: Equip,
+    leftFinger: Equip,
+    rightFinger: Equip
 }

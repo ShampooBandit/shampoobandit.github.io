@@ -7,5 +7,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="resource-limit-text">
+    <span>Resource Limit: {{this.data.player.maxResource}}</span>
+  </div>
+  <div class="resource-container">
+    <div *ngFor="let r of data.player.resources | keyvalue" [attr.id]="r.key" class="resource-box">
+      <div style="float:left; padding-left: 4px;">
+        <ion-img src="{{getResourceImg(r)}}"></ion-img>
+      </div>
+      <div class="resource-container-right" style="float:right">
+        <div class="fillbar-container">
+          <div class="fillbar">{{resourceBarWidth(r)}}</div>
+        </div>
+        <span class="resource-text">{{this.data.player.resources[r.key]}}</span>
+      </div>
+    </div>
+  </div>
   
 </ion-content>
