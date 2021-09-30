@@ -1,6 +1,6 @@
-#textLog {
+.floor-container {
     width: calc(100% - 16px);
-    height: 75%;
+    height: calc(100% - 16px);
     border: 1px solid green;
     border-radius: 8px;
     padding: 8px;
@@ -10,6 +10,31 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.floor {
+    display: flex;
+    width: 100%;
+    height: 384px;
+    border: 1px solid green;
+    background: rgb(233,233,233);
+    background: radial-gradient(circle, rgba(233,233,233,1) 0%, rgba(194,194,194,1) 35%, rgba(156,156,156,1) 100%);
+}
+
+#wall-left {
+    border-bottom: 64px solid white;
+    border-left: 128px solid transparent;
+    border-right: 128px solid transparent;
+    height: 0;
+    width: 100%;
+}
+
+#ground {
+    border-bottom: 64px solid white;
+    border-left: 128px solid transparent;
+    border-right: 128px solid transparent;
+    height: 0;
+    width: 100%;
 }
 
 #moves {

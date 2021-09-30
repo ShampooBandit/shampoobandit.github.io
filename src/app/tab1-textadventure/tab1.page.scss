@@ -1,0 +1,36 @@
+#textLog {
+    width: calc(100% - 16px);
+    height: 75%;
+    border: 1px solid green;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    color: green;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#moves {
+    width: calc(100% - 16px);
+    height: 15%;
+    border: 1px solid green;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+    color: green;
+    white-space: pre-wrap;
+    overflow-y: auto;
+}
+
+#commandBox {
+    display: flex;
+    align-items: center;
+    color: green;
+    margin: 8px;
+
+    ion-input {
+        --placeholder-color: darkgray;
+    }
+}

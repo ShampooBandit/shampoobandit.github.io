@@ -1,22 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Adventure
+      House
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="textLog">
-    {{this.textLog}}
-  </div>
-
-  <div id="commandBox">
-    <span>></span>
-    <ion-input id="command" [(ngModel)]="command" type="text" placeholder="Enter command..." (keyup)="this.parseCommand($event)"></ion-input>
-  </div>
-
-  <div id="moves">
-    <ion-text *ngFor="let m of moveHistory">{{m}}</ion-text>
+  <div class="floor-container">
+    <div class="floor" *ngFor="let f of data.house.floors">
+      <div id="wall_right"></div>
+      <div id="wall_left"></div>
+      <div id="ground"></div>
+    </div>
   </div>
 </ion-content>

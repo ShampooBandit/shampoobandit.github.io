@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Room, Player } from 'src/app/interfaces/game';
+import { Room, Player, House } from 'src/app/interfaces/game';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +7,12 @@ import { Room, Player } from 'src/app/interfaces/game';
 export class GameDataService {
   rooms: Room[];
   player: Player;
+  house: House;
 
   constructor() { 
     this.rooms = [];
     this.player = null;
+    this.house = null;
 
     this.rooms[0] = {
       name: 'Library',
@@ -85,6 +87,17 @@ export class GameDataService {
       'Topaz': 1,
       'Uranium': 1,
     }
+
+    this.house = {
+      height: 1,
+      floors: [
+        {
+          safe: true,
+          machines: null,
+          groups: null
+        }
+      ],
+    }
   }
 
   public getPlayer() {
@@ -95,7 +108,15 @@ export class GameDataService {
     return this.rooms;
   }
 
+  public getHouse() {
+    return this.house;
+  }
+
   public setPlayer(p) {
     this.player = p;
+  }
+
+  public setHouse(h) {
+    this.house = h;
   }
 }
