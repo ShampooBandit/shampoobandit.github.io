@@ -8,10 +8,21 @@
 
 <ion-content [fullscreen]="true">
   <div class="floor-container">
-    <div class="floor" *ngFor="let f of data.house.floors">
-      <div id="wall_right"></div>
-      <div id="wall_left"></div>
-      <div id="ground"></div>
+    <div class="floor" *ngFor="let f of data.house.floors; index as i">
+      <div class="floor-header">
+        <div id="floor_number">Floor {{i + 1}}</div>
+        <div id="safety-text" *ngIf="f.safe" style="background-color: green; width: 64px;">Safe</div>
+        <div id="safety-text" *ngIf="!f.safe" style="background-color: red; width: 96px;">Dangerous</div>
+      </div>
+      
+      <div class="floor-content">
+        
+      </div>
+    </div>
+    <div id="floor-purchase" (click)="buildNextFloor()">
+      <span style="color: black; margin-right: 12px;">Build next floor:</span>
+      <img src="assets/resources/Build.png" style="width: 24px; height: 24px;">
+      <span style="color: #09F"> {{getNextFloorCost()}}</span>
     </div>
   </div>
 </ion-content>

@@ -53,7 +53,7 @@ export class GameDataService {
       'Amber': 1,
       'Amethyst': 2,
       'Blood': 3,
-      'Build': 4,
+      'Build': 30,
       'Caulk': 5,
       'Chalk': 6,
       'Cobalt': 7,
