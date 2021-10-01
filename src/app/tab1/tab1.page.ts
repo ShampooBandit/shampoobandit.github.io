@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Room, Player, Item, Connection } from 'src/app/interfaces/game';
+import { ResourceTypes } from 'src/app/interfaces/game';
 import { GameDataService } from '../api/game-data.service';
  
 @Component({
@@ -14,6 +14,40 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     this.data = this.gameData;
+
+    setTimeout(this.checkForEnemies, 3000)
+  }
+
+  randomInt(num) {
+    return Math.floor(Math.random() * num)
+  }
+
+  checkForEnemies() {
+    var i = 0
+    this.data.house.floors.forEach(floor => {
+      if(!floor.safe) {
+        var chance = this.randomInt(100)
+
+        if(chance < (100 - floor.groups.length * 20)) {
+          this.generateEnemyGroup(i)
+        }
+      }
+
+      i++
+    });
+
+    setTimeout(this.checkForEnemies, 3000)
+  }
+
+  generateEnemyGroup(index) {
+    var enemyAmount = this.randomInt(4) + 1
+    var enemyType = ResourceTypes[this.randomInt(ResourceTypes.length)]
+
+    var group = {
+
+    }
+
+    this.data.house.floor[index].groups.push()
   }
 
   getNextFloorCost() {

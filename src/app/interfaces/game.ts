@@ -94,3 +94,62 @@ export interface House {
     height: Number,
     floors: Floor[]
 }
+
+export const EnemyBaseStats = {
+    'Imp': {
+        'name': 'Imp',
+        'description': '',
+        'type': '',
+        'health': 30,
+        'maxHealth': 30,
+        'power': 10,
+        'defence': 5,
+        'rewardMult': 1,
+        'rewards': {
+            'resources': [{
+                'type': 'Build',
+                'amount': 5
+            }],
+            'experience': 5,
+            'money': 10
+        }
+    }
+}
+
+export const ResourceTypes = [
+    'Amber',
+    'Amethyst',
+    'Blood',
+    'Caulk',
+    'Chalk',
+    'Cobalt',
+    'Copper',
+    'Diamond',
+    'Emerald',
+    'Frosting',
+    'Garnet',
+    'Gold',
+    'Iodine',
+    'Jet',
+    'Malachite',
+    'Marble',
+    'Mercury',
+    'Obsidian',
+    'Opal',
+    'Polychromite',
+    'Quartz',
+    'Rainbow',
+    'Redstone',
+    'Rock Candy',
+    'Rose Quartz',
+    'Ruby',
+    'Rust',
+    'Shale',
+    'Star Sapphire',
+    'Sulfur',
+    'Sunstone',
+    'Tar',
+    'Titanium',
+    'Topaz',
+    'Uranium',
+]
