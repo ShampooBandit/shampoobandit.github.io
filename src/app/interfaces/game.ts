@@ -8,9 +8,11 @@ export interface Room {
 
 export interface Item {
     name: String,
+    code: String,
     description: String,
-    obtainable: Boolean,
-    visible: Boolean,
+    type: String,
+    power: Number,
+    slot: String,
     size: Number
 }
 
@@ -34,8 +36,14 @@ export interface Player {
     inventory: Item[],
     gear: PlayerEquipment,
     resources: any,
+    discoveredResources: any,
     level: Number,
     experience: Number,
+    nextExperience: Number,
+    health: Number,
+    maxHealth: Number,
+    power: Number,
+    defence: Number,
     maxResource: Number
 }
 
@@ -65,7 +73,7 @@ export interface Enemy {
     maxHealth: Number,
     power: Number,
     defence: Number,
-    rewardMult: Number,
+    multiplier: Number,
     rewards: {
         resources: ResourceReward[],
         experience: Number,
@@ -100,11 +108,11 @@ export const EnemyBaseStats = {
         'name': 'Imp',
         'description': '',
         'type': '',
-        'health': 30,
-        'maxHealth': 30,
+        'health': 20,
+        'maxHealth': 20,
         'power': 10,
         'defence': 5,
-        'rewardMult': 1,
+        'multiplier': 1,
         'rewards': {
             'resources': [{
                 'type': 'Build',
@@ -112,6 +120,24 @@ export const EnemyBaseStats = {
             }],
             'experience': 5,
             'money': 10
+        }
+    },
+    'Ogre': {
+        'name': 'Ogre',
+        'description': '',
+        'type': '',
+        'health': 300,
+        'maxHealth': 300,
+        'power': 100,
+        'defence': 50,
+        'multiplier': 1,
+        'rewards': {
+            'resources': [{
+                'type': 'Build',
+                'amount': 100
+            }],
+            'experience': 50,
+            'money': 100
         }
     }
 }

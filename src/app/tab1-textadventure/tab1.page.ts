@@ -20,6 +20,29 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.data = this.gameData;
 
+    this.data.rooms[0].connections = {
+      'east': this.data.rooms[0],
+      'west': this.data.rooms[0],
+      'north': this.data.rooms[0],
+      'south': this.data.rooms[0]
+    }
+
+    this.data.rooms[0] = {
+      name: 'Library',
+      description: 'Cheek pressed against the cold, hard stone tiles beneath you, your eyes slowly blink open\
+ to the sunlight streaming onto your face. As you push yourself up from the floor, your gaze passes over the\
+ strange sight of seemingly endless high-arched stone doorways one after another, shelves stocked to the brim\
+ in every room you can see with an assortment of colored and sized spines; a never ending sea of books.@ A red\
+ and black checkerboard of tiles stretches out into the horizon. Along each wall between the endless archways\
+ are completely filled bookshelves. Despite your best efforts, the shelves seem to remain just as full no matter\
+ how many books you remove. The shelves reach a couple feet above your head, aligning with the top of the archways.\
+ Above those is another section of wall, with a window cut into the face of it, doubling the height of the room.\
+ Each window gives you a view of either another room\'s interior, or, a view of a bright blue sky.',
+      items: [],
+      connections: null,
+      visited: false
+    }
+
     this.moveHistory = []
 
     this.textLog = this.parseDescription(this.data.player.location.description)

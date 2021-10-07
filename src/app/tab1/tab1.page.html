@@ -16,13 +16,63 @@
       </div>
       
       <div class="floor-content">
-        
+        <div class="floor-enemy-groups" *ngIf="!inBattle">
+          <div class="enemy-group-container" *ngFor="let g of f.groups; index as j" (click)="startBattle(g, i)">
+            <div class="enemy-group-infobox">
+              <div *ngFor="let e of g.enemies; index as k">
+                <div class="infobox-text">{{e.type}} {{e.name}}</div>
+              </div>
+            </div>
+            <img class="enemy-sprite" src="assets/enemies/imp.png" style="width: 128px; height: 128px">
+          </div>
+        </div>
       </div>
     </div>
     <div id="floor-purchase" (click)="buildNextFloor()">
       <span style="color: black; margin-right: 12px;">Build next floor:</span>
       <img src="assets/resources/Build.png" style="width: 24px; height: 24px;">
       <span style="color: #09F"> {{getNextFloorCost()}}</span>
+    </div>
+  </div>
+
+  <div id="battleContainer" class="battle-container hidden">
+    <div class="battle-player-actions" *ngIf="inBattle && !transitionBattle">
+      <button class="action" (click)="doBattleTurn()">AGGRESS</button>
+      <button class="action" (click)="closeBattle()">ABSCOND</button>
+    </div>
+
+    <div class="battle-enemy-field" *ngIf="inBattle && !transitionBattle">
+      <div class="battle-enemy" *ngFor="let e of battleTargetGroup.enemies">
+        <div class="battle-enemy-infobox">
+          <span>{{e.type}} {{e.name}}</span>
+          <span>HP {{e.health}}</span>
+          <span>Pow {{e.power}}</span>
+          <span>Def {{e.defence}}</span>
+        </div>
+        <img class="enemy-sprite" src="assets/enemies/imp.png" style="width: 128px; height: 128px" (click)="battleTarget = e">
+        <div style="border: 1px solid black; width: 100%; height: 1px;" *ngIf="battleTarget == e"></div>
+      </div>
+    </div>
+
+    <div class="battle-player-info" *ngIf="inBattle && !transitionBattle">
+      <div class="player-info-name">
+        <span>{{data.player.name}}</span>
+      </div>
+      
+      <div class="player-info-stat">
+        <span>HP</span>
+        <span>{{data.player.health}}</span>
+      </div>
+
+      <div class="player-info-stat">
+        <span>Pow</span>
+        <span>{{data.player.power}}</span>
+      </div>
+
+      <div class="player-info-stat">
+        <span>Def</span>
+        <span>{{data.player.defence}}</span>
+      </div>
     </div>
   </div>
 </ion-content>

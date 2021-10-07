@@ -1,21 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Resources
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="resource-limit-text">
-    <span>Resource Limit: {{this.data.player.maxResource}}</span>
+    <span style="color: lightgray">Resource Limit: </span>
+    <span>{{this.data.player.maxResource}}</span>
   </div>
   <div class="resource-container">
-    <div *ngFor="let r of data.player.resources | keyvalue" [attr.id]="r.key" class="resource-box">
+    <div *ngFor="let r of data.player.resources | keyvalue:returnZero" [attr.id]="r.key" class="resource-box">
       <div style="float:left; padding-left: 4px;">
-        <ion-img src="{{getResourceImg(r)}}"></ion-img>
+        <ion-img src="{{getResourceImg(r)}}" title="{{r.key}}" *ngIf="data.player.discoveredResources[r.key]"></ion-img>
+        <ion-img src="assets/resources/unknown.png" *ngIf="!data.player.discoveredResources[r.key]"></ion-img>
       </div>
-      <div class="resource-container-right" style="float:right">
+      <div class="resource-container-right" style="float:right" *ngIf="data.player.discoveredResources[r.key]">
         <div class="fillbar-container">
           <div class="fillbar">{{resourceBarWidth(r)}}</div>
         </div>

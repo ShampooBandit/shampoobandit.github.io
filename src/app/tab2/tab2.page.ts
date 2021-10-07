@@ -16,6 +16,10 @@ export class Tab2Page implements OnInit {
     this.data = this.gameData;
   }
 
+  returnZero() {
+    return 0;
+  }
+
   getResourceImg(r) {
     var k = r.key.replace(' ', '_')
 

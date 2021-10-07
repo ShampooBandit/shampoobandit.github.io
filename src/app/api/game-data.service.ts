@@ -9,26 +9,10 @@ export class GameDataService {
   player: Player;
   house: House;
 
-  constructor() { 
+  constructor() {
     this.rooms = [];
     this.player = null;
     this.house = null;
-
-    this.rooms[0] = {
-      name: 'Library',
-      description: 'Cheek pressed against the cold, hard stone tiles beneath you, your eyes slowly blink open\
- to the sunlight streaming onto your face. As you push yourself up from the floor, your gaze passes over the\
- strange sight of seemingly endless high-arched stone doorways one after another, shelves stocked to the brim\
- in every room you can see with an assortment of colored and sized spines; a never ending sea of books.@ A red\
- and black checkerboard of tiles stretches out into the horizon. Along each wall between the endless archways\
- are completely filled bookshelves. Despite your best efforts, the shelves seem to remain just as full no matter\
- how many books you remove. The shelves reach a couple feet above your head, aligning with the top of the archways.\
- Above those is another section of wall, with a window cut into the face of it, doubling the height of the room.\
- Each window gives you a view of either another room\'s interior, or, a view of a bright blue sky.',
-      items: [],
-      connections: null,
-      visited: false
-    }
 
     this.player = {
       name: 'You :)',
@@ -37,55 +21,93 @@ export class GameDataService {
       inventory: [],
       gear: null,
       resources: null,
+      discoveredResources: null,
       level: 1,
       experience: 0,
-      maxResource: 30
-    }
-
-    this.rooms[0].connections = {
-      'east': this.rooms[0],
-      'west': this.rooms[0],
-      'north': this.rooms[0],
-      'south': this.rooms[0]
+      nextExperience: 100,
+      maxResource: 30,
+      health: 30,
+      power: 10,
+      defence: 5,
+      maxHealth: 30
     }
 
     this.player.resources = {
-      'Amber': 1,
-      'Amethyst': 2,
-      'Blood': 3,
-      'Build': 30,
-      'Caulk': 5,
-      'Chalk': 6,
-      'Cobalt': 7,
-      'Copper': 8,
-      'Diamond': 9,
-      'Emerald': 10,
-      'Frosting': 11,
-      'Garnet': 12,
-      'Gold': 13,
-      'Iodine': 14,
-      'Jet': 15,
-      'Malachite': 16,
-      'Marble': 17,
-      'Mercury': 18,
-      'Obsidian': 19,
-      'Opal': 20,
-      'Polychromite': 21,
-      'Quartz': 22,
-      'Rainbow': 23,
-      'Redstone': 24,
-      'Rock Candy': 25,
-      'Rose Quartz': 26,
-      'Ruby': 27,
-      'Rust': 28,
-      'Shale': 29,
-      'Star Sapphire': 30,
-      'Sulfur': 1,
-      'Sunstone': 1,
-      'Tar': 1,
-      'Titanium': 1,
-      'Topaz': 1,
-      'Uranium': 1,
+      'Build': 20,
+      'Amethyst': 0,
+      'Cobalt': 0,
+      'Copper': 0,
+      'Garnet': 0,
+      'Jet': 0,
+      'Rock Candy': 0,
+      'Ruby': 0,
+      'Shale': 0,
+      'Sunstone': 0,
+      'Uranium': 0,
+      'Amber': 0,
+      'Blood': 0,
+      'Caulk': 0,
+      'Frosting': 0,
+      'Rainbow': 0,
+      'Tar': 0,
+      'Iodine': 0,
+      'Mercury': 0,
+      'Chalk': 0,
+      'Gold': 0,
+      'Malachite': 0,
+      'Marble': 0,
+      'Obsidian': 0,
+      'Polychromite': 0,
+      'Redstone': 0,
+      'Rust': 0,
+      'Sulfur': 0,
+      'Titanium': 0,
+      'Diamond': 0,
+      'Emerald': 0,
+      'Opal': 0,
+      'Quartz': 0,
+      'Rose Quartz': 0,
+      'Star Sapphire': 0,
+      'Topaz': 0,
+    }
+
+    this.player.discoveredResources = {
+      'Amber': false,
+      'Amethyst': false,
+      'Blood': false,
+      'Build': true,
+      'Caulk': false,
+      'Chalk': false,
+      'Cobalt': false,
+      'Copper': false,
+      'Diamond': false,
+      'Emerald': false,
+      'Frosting': false,
+      'Garnet': false,
+      'Gold': false,
+      'Iodine': false,
+      'Jet': false,
+      'Malachite': false,
+      'Marble': false,
+      'Mercury': false,
+      'Obsidian': false,
+      'Opal': false,
+      'Polychromite': false,
+      'Quartz': false,
+      'Rainbow': false,
+      'Redstone': false,
+      'Rock Candy': false,
+      'Rose Quartz': false,
+      'Ruby': false,
+      'Rust': false,
+      'Shale': false,
+      'Star Sapphire': false,
+      'Sulfur': false,
+      'Sunstone': false,
+      'Tar': false,
+      'Titanium': false,
+      'Topaz': false,
+      'Uranium': false,
     }
 
     this.house = {
@@ -94,7 +116,7 @@ export class GameDataService {
         {
           safe: true,
           machines: null,
-          groups: null
+          groups: []
         }
       ],
     }

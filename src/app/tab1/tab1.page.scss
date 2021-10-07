@@ -48,10 +48,153 @@
 }
 
 .floor-content {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: calc(100% - 32px);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+}
+
+.floor-enemy-groups {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.enemy-group-container {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.enemy-group-infobox {
+    visibility: hidden;
+    width: auto;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+}
+
+.enemy-group-container:hover .enemy-group-infobox {
+    visibility: visible;
+}
+
+.enemy-group-container:hover {
+    background-color: #6af;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.battle-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 8px;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+}
+
+.battle-enemy-field {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.battle-enemy-infobox {
+    visibility: hidden;
+    width: 128px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+}
+
+.battle-enemy:hover .battle-enemy-infobox {
+    visibility: visible;
+}
+
+.battle-player-actions {
+    height: 192px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid black;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    .action {
+        background: transparent;
+        font-size: 24px;
+    }
+
+    .action:hover {
+        text-decoration: underline;
+    }
+}
+
+.battle-player-info {
+    height: 128px;
+    width: 128px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-info-name {
+    display: flex;
+    border-bottom: 1px solid black;
+    height: 32px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.player-info-stat {
+    margin: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 8px);
 }
 
 #floor_number {
@@ -108,3 +251,52 @@
       transform: translate3d(4px, 0, 0);
     }
   }
+
+  @keyframes attack {
+      25% {
+        transform: translate3d(0, 4px, 0);
+      }
+
+      to {
+        transform: translate3d(0, -4px, 0);
+      }
+  }
+
+  @keyframes growFromCenter {
+      from {
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+      }
+
+      to {
+        left: 12%;
+        top: 25%;
+        width: 75%;
+        height: 50%;
+      }
+  }
+
+  @keyframes shrinkToCenter {
+    from {
+        left: 12%;
+        top: 25%;
+        width: 75%;
+        height: 50%;
+    }
+
+    to {
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+    }
+}
+
+.grown {
+    left: 12%;
+    top: 25%;
+    width: 75%;
+    height: 50%;
+}

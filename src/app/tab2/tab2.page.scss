@@ -1,6 +1,6 @@
 .resource-box {
     background: rgb(238,238,238);
-    background: linear-gradient(180deg, rgba(238,238,238,1) 0%, rgba(201,201,201,1) 35%, rgba(163,163,163,1) 100%);
+    background: linear-gradient(180deg, #efefef 0%, #cccccc 100%);
     border-radius: 8px;
     height: 64px;
     min-width: 256px;
@@ -32,17 +32,17 @@
 
 .fillbar {
     border-radius: 2px;
-    background-color: #0AE;
+    background-color: #1ab3f1;
     height: 100%;
 }
 
 .resource-text {
-    color: #06E;
+    color: #1ab3f1;
     margin: 8px;
 }
 
 .resource-limit-text {
-    color: #0AE;
+    color: #1ab3f1;
     margin: 8px;
 }
 
