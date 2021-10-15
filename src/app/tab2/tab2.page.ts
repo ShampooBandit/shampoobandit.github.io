@@ -9,11 +9,14 @@ import { GameDataService } from '../api/game-data.service';
 export class Tab2Page implements OnInit {
 
   data: any;
+  keys: any;
 
   constructor(private gameData: GameDataService) {}
 
   ngOnInit() {
     this.data = this.gameData;
+
+    this.keys = Object.keys(this.data.player.resources)
   }
 
   returnZero() {
@@ -21,7 +24,7 @@ export class Tab2Page implements OnInit {
   }
 
   getResourceImg(r) {
-    var k = r.key.replace(' ', '_')
+    var k = r.replace(' ', '_')
 
     switch(k) {
       case 'Opal':
@@ -34,9 +37,9 @@ export class Tab2Page implements OnInit {
   }
 
   resourceBarWidth(r) {
-    var i = <HTMLElement>document.getElementById(r.key).children[1].children[0].children[0]
+    var i = <HTMLElement>document.getElementById(r).children[1].children[0].children[0]
 
-    var percent = this.data.player.resources[r.key] / this.data.player.maxResource
+    var percent = this.data.player.resources[r] / this.data.player.maxResource
     percent *= 100
 
     i.style.width = percent.toString() + '%'
