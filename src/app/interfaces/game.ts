@@ -18,10 +18,17 @@ export interface Item {
 
 export interface Equip {
     name: String,
+    code: String,
     description: String,
-    power: Number,
-    cost: any,
+    stats: Stats,
+    cost: ResourceAmount[],
     id: Number
+}
+
+export interface Stats {
+    maxHealth: Number,
+    power: Number,
+    defence: Number
 }
 
 export interface Connection {
@@ -60,7 +67,7 @@ export interface PlayerEquipment {
     rightFinger: Equip
 }
 
-export interface ResourceReward {
+export interface ResourceAmount {
     type: String,
     amount: Number
 }
@@ -75,7 +82,7 @@ export interface Enemy {
     defence: Number,
     multiplier: Number,
     rewards: {
-        resources: ResourceReward[],
+        resources: ResourceAmount[],
         experience: Number,
         money: Number
     }

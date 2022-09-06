@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnemyBaseStats, ResourceTypes } from 'src/app/interfaces/game';
 import { GameDataService } from '../api/game-data.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
  
 @Component({
   selector: 'app-tab1',
@@ -74,7 +75,7 @@ export class Tab1Page implements OnInit {
 
   attackEnemy() {
     if(this.battleTarget) {
-      this.battleTarget.health -= (this.data.player.power - this.battleTarget.defence)
+      this.battleTarget.health -= Math.max(this.data.player.power - this.battleTarget.defence, 1)
 
       if(this.battleTarget.health <= 0) {
         this.enemyDeath(this.battleTarget)
@@ -93,12 +94,13 @@ export class Tab1Page implements OnInit {
     var index = this.battleTargetGroup.enemies.indexOf(enemy)
 
     this.data.player.experience += enemy.rewards.experience
+    this.checkPlayerLevelup()
+    
     for(var i = 0; i < enemy.rewards.resources.length; i++) {
       if(!this.data.player.discoveredResources[enemy.rewards.resources[i].type]) {
         this.data.player.discoveredResources[enemy.rewards.resources[i].type] = true
       }
       this.data.player.resources[enemy.rewards.resources[i].type] += enemy.rewards.resources[i].amount
-      this.checkPlayerLevelup()
       if(this.data.player.resources[enemy.rewards.resources[i].type] > this.data.player.maxResource) {
         this.data.player.resources[enemy.rewards.resources[i].type] = this.data.player.maxResource
       }
@@ -108,7 +110,7 @@ export class Tab1Page implements OnInit {
   }
 
   attackPlayer(enemy) {
-    this.data.player.health -= (enemy.power - this.data.player.defence)
+    this.data.player.health -= Math.max(enemy.power - this.data.player.defence, 1)
   }
 
   checkForBattleComplete() {
